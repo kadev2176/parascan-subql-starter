@@ -1,0 +1,27 @@
+{
+  "name": "parascan-subql-starter",
+  "version": "1.0.0",
+  "description": "subql starter for parascan",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc -b",
+    "prepack": "rm -rf dist && npm build",
+    "test": "jest",
+    "codegen": "./node_modules/.bin/subql codegen"
+  },
+  "homepage": "https://github.com/parascan/parascan-subql-starter",
+  "repository": "github:parascan/parascan-subql-starter",
+  "files": [
+    "dist",
+    "schema.graphql",
+    "project.yaml"
+  ],
+  "author": "Bisola Olasehinde",
+  "license": "MIT",
+  "devDependencies": {
+    "@polkadot/api": "^7",
+    "@subql/types": "latest",
+    "typescript": "^4.1.3",
+    "@subql/cli": "latest"
+  }
+}

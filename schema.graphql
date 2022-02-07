@@ -1,0 +1,40 @@
+type Block @entity {
+  id: ID!
+  number: BigInt! @index(unique: true)
+  hash: String
+  timestamp: Date
+  parentHash: String
+  specVersion: Int
+  stateRoot: String
+  extrinsicsRoot: String
+
+  extrinsics: [Extrinsic] @derivedFrom(field: "block")
+  events: [Event] @derivedFrom(field: "block")
+}
+
+type Extrinsic @entity {
+  id: ID!
+  hash: String!
+  block: Block!
+  blockNumber: BigInt! @index(unique: false)
+  index: Int!
+  isSigned: Boolean
+  signer: Account
+  section: String
+  method: String
+  success: Boolean
+}
+
+type Event @entity {
+  id: ID!
+  block: Block!
+  blockNumber: BigInt! @index(unique: false)
+  index: Int!
+  section: String
+  method: String
+  extrinsic: Extrinsic
+}
+
+type Account @entity {
+  id: ID!
+}
