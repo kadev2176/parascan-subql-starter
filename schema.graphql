@@ -37,4 +37,5 @@ type Event @entity {
 
 type Account @entity {
   id: ID!
+  extrinsics: [Extrinsic] @derivedFrom(field: "signer")
 }
