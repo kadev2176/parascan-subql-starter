@@ -40,6 +40,10 @@ type Transfer @entity {
   from: Account!
   to: Account!
   value: BigInt!
+  block: Block!
+  blockNumber: BigInt!
+  extrinsicIndex: Int
+  eventIndex: Int!
 }
 
 type Account @entity {
