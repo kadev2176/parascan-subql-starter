@@ -35,6 +35,13 @@ type Event @entity {
   extrinsic: Extrinsic
 }
 
+type Transfer @entity {
+  id: ID!
+  from: Account!
+  to: Account!
+  value: BigInt!
+}
+
 type Account @entity {
   id: ID!
   extrinsics: [Extrinsic] @derivedFrom(field: "signer")
@@ -42,6 +49,11 @@ type Account @entity {
 
 type Day @entity {
   id: ID!
+  year: Int!
+  month: Int!
+  date: Int!
   extrinsics: Int!
   events: Int!
+  transferCount: Int!
+  transferAmount: BigInt!
 }

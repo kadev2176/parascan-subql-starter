@@ -3,6 +3,7 @@ import { Event } from "../types";
 import { ensureBlock } from "./block";
 import { addEventToDay } from "./day";
 import { ensureExtrinsic } from "./extrinsic";
+import { createTransfer } from "./transfer";
 
 export async function ensureEvent(event: SubstrateEvent): Promise<Event> {
   const block = await ensureBlock(event.block.block.header.number.toString());
@@ -31,4 +32,8 @@ export async function createEvent(event: SubstrateEvent): Promise<void> {
   }
   await entity.save();
   await addEventToDay(event.block.timestamp);
+
+  if (event.event.section==="balances" && event.event.method==="Transfer") {
+    createTransfer(event)
+  }
 }
