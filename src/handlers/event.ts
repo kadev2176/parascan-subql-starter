@@ -1,6 +1,7 @@
 import { SubstrateEvent } from "@subql/types";
 import { Event } from "../types";
 import { ensureBlock } from "./block";
+import { addEventToDay } from "./day";
 import { ensureExtrinsic } from "./extrinsic";
 
 export async function ensureEvent(event: SubstrateEvent): Promise<Event> {
@@ -29,4 +30,5 @@ export async function createEvent(event: SubstrateEvent): Promise<void> {
     entity.extrinsicId = extrinsic.id;
   }
   await entity.save();
+  await addEventToDay(event.block.timestamp);
 }

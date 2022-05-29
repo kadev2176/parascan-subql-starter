@@ -2,6 +2,7 @@ import { SubstrateExtrinsic } from "@subql/types";
 import { Extrinsic } from "../types";
 import { ensureBlock } from "./block";
 import { ensureAccount } from "./account";
+import { addExtrinsicToDay } from "./day";
 
 export async function ensureExtrinsic(
   extrinsic: SubstrateExtrinsic
@@ -40,4 +41,5 @@ export async function createExtrinsic(
   entity.method = extrinsic.extrinsic.method.method;
   entity.success = extrinsic.success;
   await entity.save();
+  await addExtrinsicToDay(extrinsic.block.timestamp);
 }
