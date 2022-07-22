@@ -7,8 +7,8 @@ schema:
   file: ./schema.graphql
 
 network:
-  endpoint: wss://basilisk.api.onfinality.io/public-ws
-  genesisHash: "0xa85cfb9b9fd4d622a5b28289a02347af987d8f73fa3108450e2b4a11c1ce5755"
+  endpoint: wss://rpc-global.parami.io/ws
+  genesisHash: "0xefce024f2032c1ec800b861a32166b4bb32b1d2950669af100effedc58927c9a"
 
 dataSources:
   - kind: substrate/Runtime
