@@ -8,7 +8,7 @@ schema:
 
 network:
   endpoint: wss://rpc-global.parami.io/ws
-  genesisHash: "0xefce024f2032c1ec800b861a32166b4bb32b1d2950669af100effedc58927c9a"
+  genesisHash: "0x2771615a4f7164aab679fe9d2e8988e119abef2c2df8f456f6ebc76a63298772"
 
 dataSources:
   - kind: substrate/Runtime
